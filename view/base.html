@@ -1,79 +1,85 @@
 {{define "base.html"}}
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <title>{{template "title" .}}</title>
-      <meta http-equiv="X-UA-Compatible" content="IE-edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta charset="UTF-8">
-      <link rel="stylesheet" href="static/fonts/beyond_the_mountains-webfont.css" type="text/css">
-      <link rel="stylesheet" href="static/plugin-frameworks/bootstrap.min.css">
-      <link rel="stylesheet" href="static/fonts/ionicons.css">
-      <link rel="stylesheet" href="static/common/styles.css">
-    </head>
-    <body>
-      <header>
-        <div class="container">
-          <a href="#" class="logo"><img src="static/images/heading_logo.png" alt="logo">
-            <b style="font-size: 35px; font-family: Georgia;">Niomi 's</b>
-          </a>
-          
-          <div class="right-area">
-            <h6>
-              <a href="#" class="plr-20 color-white btn-fill-primary">ORDER : +62 811 912 7832</a>
-            </h6>
-          </div>
+<!DOCTYPE html>
+<html>
 
-          <a href="#" data-menu="#main-menu" class="menu-nav-icon"><i class="ion-navicon"></i></a>
+<head>
+  <title>{{template "title" .}}</title>
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="static/fonts/beyond_the_mountains-webfont.css" type="text/css">
+  <link rel="stylesheet" href="static/plugin-frameworks/bootstrap.min.css">
+  <link rel="stylesheet" href="static/fonts/ionicons.css">
+  <link rel="stylesheet" href="static/common/styles.css">
+</head>
 
-          <ul class="main-menu font-mountainsre" id="main-menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-          
-          <div class="clearfix"></div>
-        </div>
-      </header>
-      {{template "body" .}}
+<body>
+  <header>
+    <div class="container">
+      <a href="#" class="logo"><img src="static/images/heading_logo.png" alt="logo">
+        <b style="font-size: 35px; font-family: Georgia;">K FOOD'S</b>
+      </a>
 
-      <footer class="pb-50 pt-70 pos-relative">
-        <div class="pos-top triangle-bottom"></div>
-        <div class="container-fluid">
-          <a href="#"><img src="static/images/heading_logo.png" alt="logo" width="50" height="50"></a>
-          <div class="pt-30">
-            <p class="underline-secondary"><b>Address : </b></p>
-            <p>Jalan Kemerdekaan Indonesia Jakarta Pusat, Indonesia</p>
-          </div>
+      <div class="right-area">
+        <h6>
+          <a href="#" class="plr-20 color-white btn-fill-primary">ORDER : +62 811 912 7832</a>
+        </h6>
+      </div>
 
-          <div class="pt-30">
-            <p class="underline-secondary"><b>Phone : </b></p>
-            <a href="tel:+62 811 912 7832">+62 811 912 7832</a>
-          </div>
+      <a href="#" data-menu="#main-menu" class="menu-nav-icon"><i class="ion-navicon"></i></a>
 
-          <div class="pt-30">
-            <p class="underline-secondary"><b>Email : </b></p>
-            <a href="mailto:khalilattalla9022@gmail.com">khalilattalla9022@gmail.com</a>
-          </div>
+      <ul class="main-menu font-mountainsre" id="main-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
 
-          <ul class="icon mt-30">
-            <li><a href="#"><i class="ion-social-pinterest"></i></a></li>
-            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
-            <li><a href="#"><i class="ion-social-dribbble-outline"></i></a></li>
-            <li><a href="#"><i class="ion-social-linkedin"></i></a></li>
-            <li><a href="#"><i class="ion-social-vimeo"></i></a></li>
-          </ul>
-          <p class="color-light font-9 mt-50 mt-sm-0">Copyright &copy;<script>document.write(new Date().getFullYear())</script> All Right reserved | this template is made with <i class="ion-heart" aria-hidden="true"></i>
-            <a href="#" target="_blank">Love</a>
-          </p>
-        </div>
-      </footer>
-      <script src="static/plugin-frameworks/jquery-3.2.1.min.js"></script>
-      <script src="static/plugin-frameworks/bootstrap.min.js"></script>
-      <script src="static/plugin-frameworks/swiper.js"></script>
-      <script src="static/common/scripts.js"></script>
-    </body>
-  </html>
+      <div class="clearfix"></div>
+    </div>
+  </header>
+
+  {{template "body" .}}
+
+  <footer class="pb-50 pt-70 pos-relative">
+    <div class="pos-top triangle-bottom"></div>
+    <div class="container-fluid">
+      <a href="#"><img src="static/images/heading_logo.png" alt="logo" width="50" height="50"></a>
+      <div class="pt-30">
+        <p class="underline-secondary"><b>Address : </b></p>
+        <p>Jalan Kemerdekaan Indonesia Jakarta Pusat, Indonesia</p>
+      </div>
+
+      <div class="pt-30">
+        <p class="underline-secondary"><b>Phone : </b></p>
+        <a href="tel:+62 811 912 7832">+62 811 912 7832</a>
+      </div>
+
+      <div class="pt-30">
+        <p class="underline-secondary"><b>Email : </b></p>
+        <a href="mailto:khalilattalla9022@gmail.com">khalilattalla9022@gmail.com</a>
+      </div>
+
+      <ul class="icon mt-30">
+        <li><a href="#"><i class="ion-social-pinterest"></i></a></li>
+        <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+        <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+        <li><a href="#"><i class="ion-social-dribbble-outline"></i></a></li>
+        <li><a href="#"><i class="ion-social-linkedin"></i></a></li>
+        <li><a href="#"><i class="ion-social-vimeo"></i></a></li>
+      </ul>
+      <p class="color-light font-9 mt-50 mt-sm-0">Copyright &copy;<script>
+          document.write(new Date().getFullYear())
+        </script> All Right reserved | this template is made with <i class="ion-heart" aria-hidden="true"></i>
+        <a href="#" target="_blank">EMILIA</a>
+      </p>
+    </div>
+  </footer>
+  <script src="static/plugin-frameworks/jquery-3.2.1.min.js"></script>
+  <script src="static/plugin-frameworks/bootstrap.min.js"></script>
+  <script src="static/plugin-frameworks/swiper.js"></script>
+  <script src="static/common/scripts.js"></script>
+</body>
+
+</html>
 {{end}}
