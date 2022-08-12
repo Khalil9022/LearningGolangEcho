@@ -48,6 +48,30 @@ func TambahData(c echo.Context) error {
 	}
 }
 
+func UpdateData(c echo.Context) error {
+	db, err := server.Koneksi()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	var id_menu = c.FormValue("Id_menu")
+	var nama = c.FormValue("Nama_menu")
+	var deskripsi = c.FormValue("Deskripsi")
+	var harga = c.FormValue("Harga")
+	var jenis = c.FormValue("Jenis")
+	var url_gambar = c.FormValue("Url_gambar")
+
+	_, err = db.Exec("update tbl_menu set nama_menu = ? , deskripsi = ? , harga = ? , jenis = ? , url_gambar = ? where id_menu = ?", nama, deskripsi, harga, jenis, url_gambar, id_menu)
+
+	if err != nil {
+		fmt.Println("Menu Gagal diubah :(")
+		return c.JSON(http.StatusOK, "Gagal mengubah data")
+	} else {
+		fmt.Println("Menu Berhasil diubah :D")
+		return c.JSON(http.StatusOK, "Berhasil mengubah data")
+	}
+}
+
 func ambil_semua_menu() {
 	data = nil
 	db, err := server.Koneksi()
