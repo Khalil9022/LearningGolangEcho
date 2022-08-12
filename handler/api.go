@@ -25,6 +25,29 @@ func BacaData(c echo.Context) error {
 	return c.JSON(http.StatusOK, data)
 }
 
+func TambahData(c echo.Context) error {
+	db, err := server.Koneksi()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	var nama = c.FormValue("Nama_menu")
+	var deskripsi = c.FormValue("Deskripsi")
+	var harga = c.FormValue("Harga")
+	var jenis = c.FormValue("Jenis")
+	var url_gambar = c.FormValue("Url_gambar")
+
+	_, err = db.Exec("insert into tbl_menu values (?,?,?,?,?,?)", nil, nama, deskripsi, url_gambar, jenis, harga)
+
+	if err != nil {
+		fmt.Println("Menu Gagal Ditambahkan :(")
+		return c.JSON(http.StatusOK, "Gagal menambahkan menu")
+	} else {
+		fmt.Println("Menu Berhasil Ditambahkan :D")
+		return c.JSON(http.StatusOK, "Berhasil menambahkan menu")
+	}
+}
+
 func ambil_semua_menu() {
 	data = nil
 	db, err := server.Koneksi()
@@ -48,11 +71,12 @@ func ambil_semua_menu() {
 			fmt.Println(err.Error())
 			return
 		}
-
 		data = append(data, each)
 	}
+
 	if err = rows.Err(); err != nil {
 		fmt.Println(err.Error())
 		return
 	}
+
 }
