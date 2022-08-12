@@ -6,7 +6,7 @@ import (
 )
 
 func Koneksi() (*sql.DB, error) {
-	db, err := sql.Open("mysql", "root:@TCP(localhost)/db_pizza")
+	db, err := sql.Open("mysql", "root:@tcp(localhost)/db_pizza")
 
 	if err != nil {
 		return nil, err
