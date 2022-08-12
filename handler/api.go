@@ -72,6 +72,26 @@ func UpdateData(c echo.Context) error {
 	}
 }
 
+//Delete Data 
+func HapusData(c echo.Context) error {
+	db, err := server.Koneksi()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
+	var id_menu = c.FormValue("Id_menu")
+
+	_, err = db.Exec("delete from tbl_menu where id_menu = ?", id_menu)
+
+	if err != nil {
+		fmt.Println("Menu Gagal dihapus :(")
+		return c.JSON(http.StatusOK, "Gagal menghapus data")
+	} else {
+		fmt.Println("Menu Berhasil dihapus :D")
+		return c.JSON(http.StatusOK, "Berhasil menghapus data")
+	}
+}
+
 func ambil_semua_menu() {
 	data = nil
 	db, err := server.Koneksi()

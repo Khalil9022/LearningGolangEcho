@@ -44,6 +44,8 @@ func main() {
 	e.GET("/baca_menu", handler.BacaData)
 	e.POST("/tambah_menu", handler.TambahData)
 	e.PUT("/ubah_menu", handler.UpdateData)
+	e.PUT("/hapus_menu", handler.HapusData)    //versi menggunakan dari x-www-from-urlencoded
+	e.DELETE("/hapus_menu", handler.HapusData) //versi menggunakan parameter
 	e.Static("/static", "assets")
 
 	// Start the Echo server
