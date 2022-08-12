@@ -1,4 +1,5 @@
+* linguist-vendored
 *.css linguist-detectable=false
-*.js linguist-detectable=false
+*.js linguist-vendored=false
 *.html linguist-detectable=false
 *.go linguist-detectable=true
