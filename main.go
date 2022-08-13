@@ -49,6 +49,7 @@ func main() {
 	e.DELETE("/hapus_menu", handler.HapusData) //versi menggunakan parameter
 	e.Static("/static", "assets")
 	e.GET("/order", handler.OrderHandler)
+	e.POST("/tambah_order",handler.TambahOrder)
 
 	// Start the Echo server
 	e.Logger.Fatal(e.Start(":1323"))

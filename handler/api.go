@@ -30,7 +30,7 @@ func TambahData(c echo.Context) error {
 	if err != nil {
 		fmt.Println(err.Error())
 	}
-
+	defer db.Close()
 	var nama = c.FormValue("Nama_menu")
 	var deskripsi = c.FormValue("Deskripsi")
 	var harga = c.FormValue("Harga")
@@ -48,12 +48,36 @@ func TambahData(c echo.Context) error {
 	}
 }
 
+func TambahOrder(c echo.Context) error {
+	db, err := server.Koneksi()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	defer db.Close()
+	var id = c.FormValue("id")
+	var nama_pemesan = c.FormValue("nama_pemesan")
+	var nomor_telepon = c.FormValue("nomor_telepon")
+	var jumlah = c.FormValue("jumlah")
+	var alamat = c.FormValue("alamat")
+
+	_, err = db.Exec("insert into tbl_order values (?,?,?,?,?,?)", nil, id, nama_pemesan, nomor_telepon, alamat, jumlah)
+
+	if err != nil {
+		fmt.Println("Pesanan Gagal Dibuat :(")
+		return c.HTML(http.StatusOK, "<strong>Gagal menambahkan Pemesanan</strong>")
+	} else {
+		fmt.Println("Pesanan Berhasil Dibuat :D")
+		return c.HTML(http.StatusOK, "<script>alert('Berhasil menambahkan pesanan, silahkan tunggu telepon dari kami, terimakasih :D'); window.location = 'http://localhost:1323';</script>")
+	}
+	return c.Redirect(http.StatusSeeOther, "/")
+}
+
 func UpdateData(c echo.Context) error {
 	db, err := server.Koneksi()
 	if err != nil {
 		fmt.Println(err.Error())
 	}
-
+	defer db.Close()
 	var id_menu = c.FormValue("Id_menu")
 	var nama = c.FormValue("Nama_menu")
 	var deskripsi = c.FormValue("Deskripsi")
@@ -78,7 +102,7 @@ func HapusData(c echo.Context) error {
 	if err != nil {
 		fmt.Println(err.Error())
 	}
-
+	defer db.Close()
 	var id_menu = c.FormValue("Id_menu")
 
 	_, err = db.Exec("delete from tbl_menu where id_menu = ?", id_menu)
