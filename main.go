@@ -43,6 +43,7 @@ func main() {
 	e.GET("/", handler.HomeHandler)
 	e.GET("/about", handler.AboutHandler)
 	e.GET("/baca_menu", handler.BacaData)
+	e.GET("/baca_populer", handler.BacaPopuler)
 	e.POST("/tambah_menu", handler.TambahData)
 	e.PUT("/ubah_menu", handler.UpdateData)
 	e.PUT("/hapus_menu", handler.HapusData)    //versi menggunakan dari x-www-from-urlencoded
