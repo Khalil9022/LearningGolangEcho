@@ -11,6 +11,11 @@
   <link rel="stylesheet" href="static/plugin-frameworks/bootstrap.min.css">
   <link rel="stylesheet" href="static/fonts/ionicons.css">
   <link rel="stylesheet" href="static/common/styles.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 
 <body>
@@ -28,12 +33,14 @@
 
       <a href="#" data-menu="#main-menu" class="menu-nav-icon"><i class="ion-navicon"></i></a>
 
-      <ul class="main-menu font-mountainsre" id="main-menu">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
+      <div class="navbarResponsive">
+        <ul class="main-menu font-mountainsre" id="main-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
 
       <div class="clearfix"></div>
     </div>
@@ -41,7 +48,7 @@
 
   {{template "body" .}}
 
-  <footer class="pb-50 pt-70 pos-relative">
+  <footer class="pb-50 pt-70 pos-relative" id="services">
     <div class="pos-top triangle-bottom"></div>
     <div class="container-fluid">
       <a href="#"><img src="static/images/heading_logo.png" alt="logo" width="50" height="50"></a>
@@ -68,7 +75,8 @@
         <li><a href="#"><i class="ion-social-linkedin"></i></a></li>
         <li><a href="#"><i class="ion-social-vimeo"></i></a></li>
       </ul>
-      <p class="color-light font-9 mt-50 mt-sm-0">Copyright &copy;<script>
+      <p class="color-light font-9 mt-50 mt-sm-0">Copyright &copy;
+        <script>
           document.write(new Date().getFullYear())
         </script> All Right reserved | this template is made with <i class="ion-heart" aria-hidden="true"></i>
         <a href="#" target="_blank">Emilia</a>
@@ -79,6 +87,53 @@
   <script src="static/plugin-frameworks/bootstrap.min.js"></script>
   <script src="static/plugin-frameworks/swiper.js"></script>
   <script src="static/common/scripts.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', event => {
+
+      // Navbar shrink function
+      var navbarShrink = function () {
+        const navbarCollapsible = document.body.querySelector('#mainNav');
+        if (!navbarCollapsible) {
+          return;
+        }
+        if (window.scrollY === 0) {
+          navbarCollapsible.classList.remove('navbar-shrink')
+        } else {
+          navbarCollapsible.classList.add('navbar-shrink')
+        }
+
+      };
+
+      // Shrink the navbar 
+      navbarShrink();
+
+      // Shrink the navbar when page is scrolled
+      document.addEventListener('scroll', navbarShrink);
+
+      // Activate Bootstrap scrollspy on the main nav element
+      const mainNav = document.body.querySelector('#mainNav');
+      if (mainNav) {
+        new bootstrap.ScrollSpy(document.body, {
+          target: '#mainNav',
+          offset: 72,
+        });
+      };
+
+      // Collapse responsive navbar when toggler is visible
+      const navbarToggler = document.body.querySelector('.navbar-toggler');
+      const responsiveNavItems = [].slice.call(
+        document.querySelectorAll('#navbarResponsive .nav-link')
+      );
+      responsiveNavItems.map(function (responsiveNavItem) {
+        responsiveNavItem.addEventListener('click', () => {
+          if (window.getComputedStyle(navbarToggler).display !== 'none') {
+            navbarToggler.click();
+          }
+        });
+      });
+
+    });
+  </script>
 </body>
 
 </html>

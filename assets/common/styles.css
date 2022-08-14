@@ -30,7 +30,7 @@
 1. PRIMARY STYLES
 --------------------------------- */
 
-html { font-size: 100%; overflow-x: hidden; width: 100%; margin: 0px; padding: 0px; touch-action: manipulation;}
+html { font-size: 100%; overflow-x: hidden; width: 100%; margin: 0px; padding: 0px; touch-action: manipulation; }
 
 body { font-size: 14px; font-family: 'Open Sans', sans-serif; width: 100%; height: 100%; margin: 0; font-weight: 400; -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale; word-wrap: break-word; overflow-x: hidden; color: #333; }

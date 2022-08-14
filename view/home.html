@@ -3,21 +3,21 @@ K FOOD Blog | {{index . "name"}}
 {{end}}
 
 {{define "body"}}
-<section class="bg-1 h-900x main-slider pos-relative">
+<section class="bg-1 h-900x main-slider pos-relative" id="home">
   <div class="triangle-up mt-100">
     <div class="container h-100 ">
       <div class="dplay-tbl">
         <div class="dplay-tbl-cell center-text color-white">
           <h5 class="mt-100"><b>TERBAIK DI INDONESIA</b></h5>
           <h1 class="mb-15">Pizza & Pasta</h1>
-          <h5><a href="#" class="btn-primaryc plr-25"><b>Lihat menu hari ini</b></a></h5>
+          <h5><a href="#menu" class="btn-primaryc plr-25"><b>Lihat menu hari ini</b></a></h5>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="story-area left-text center-sm-text pos-relative">
+<section class="story-area left-text center-sm-text pos-relative" id="about">
   <div class="abs-tbl bg-2 w-20 z--1 dplay-md-none"></div>
   <div class="abs-tbr bg-3 w-20 z--1 dplay-md-none"></div>
   <div class="container">
@@ -75,14 +75,14 @@ K FOOD Blog | {{index . "name"}}
       </div>
       {{ end }}
     </div>
-    <h6 class="center-text mt-40 mt-sm-20 mb-30"><a href="#" class="btn-primaryc plr-25"><b>Lihat Menu Hari
+    <h6 class="center-text mt-40 mt-sm-20 mb-30"><a href="#menu" class="btn-primaryc plr-25"><b>Lihat Menu Hari
           ini</b></a>
     </h6>
   </div>
 
 </section>
 
-<section>
+<section id="menu">
   <div class="container">
     <div class="heading">
       <img class="heading-img" src="static/images/heading_logo.png" alt="logo">
